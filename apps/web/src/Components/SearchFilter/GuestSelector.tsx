@@ -87,10 +87,11 @@ const GuestSelector = ({ guests, onGuestChange }: Props) => {
 				<button
 					aria-label={t("guestPlaceholder")}
 					type="button"
-					className="flex items-center gap-2 flex-1 px-4 py-3 bg-white/90 cursor-pointer"
+					className="w-full flex items-center gap-2 flex-1 px-4 py-3 
+            cursor-pointer bg-[#F8FAFB] rounded-2xl lg:rounded-none border lg:border-none border-[#DFE5E7]"
 				>
 					<UserRound className="w-6 h-6 text-[#18191A]" />
-					<p className="text-[#707577] font-light">
+					<p className="text-[#707577] font-light lg:text-base text-sm">
 						{formatGuestCount(guests)}
 					</p>
 				</button>

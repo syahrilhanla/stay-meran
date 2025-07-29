@@ -21,10 +21,12 @@ const DateRangePicker = ({ selectedDate, setSelectedDate }: Props) => {
 				<button
 					aria-label={t("arrivalPlaceholder")}
 					type="button"
-					className="flex items-center gap-2 flex-1 px-4 py-3 bg-white/90 rounded-l-2xl border-r border-gray-400 cursor-pointer"
+					className="w-full flex items-center gap-2 flex-1 px-4 py-3 bg-[#F8FAFB] 
+						lg:rounded-l-2xl lg:rounded-r-none rounded-2xl cursor-pointer
+						border lg:border-none lg:border-r border-[#DFE5E7]"
 				>
 					<CalendarDays className="w-6 h-6 text-[#18191A]" />
-					<p className="text-[#707577] font-light">
+					<p className="text-[#707577] font-light lg:text-base text-sm">
 						{selectedDate.from
 							? `${formatDateRange(selectedDate)}`
 							: t("arrivalPlaceholder")}
