@@ -95,11 +95,11 @@ const GuestSelector = ({ guests, onGuestChange }: Props) => {
 					</p>
 				</button>
 			</PopoverTrigger>
-			<PopoverContent className="w-auto p-0">
-				<Card className="w-72 py-3 px-0 border-none shadow-lg">
+			<PopoverContent className="w-full p-0">
+				<Card className="min-w-80 py-3 px-0 border-none shadow-lg">
 					<CardHeader>
 						<CardTitle className="text-sm">{t("selectGuestTitle")}</CardTitle>
-						<CardDescription className="-mt-2 text-sm text-gray-500">
+						<CardDescription className="-mt-2 text-sm text-gray-500 text-nowrap">
 							{t("selectGuestSubtitle")}
 							<p>{error && <span className="text-red-500">{error}</span>}</p>
 						</CardDescription>

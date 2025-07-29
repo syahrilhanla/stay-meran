@@ -19,7 +19,7 @@ type Language = {
 
 enum TranslationLocale {
 	en = "English (EN)",
-	it = "Italian (IT)",
+	it = "Italy (IT)",
 	de = "German (DE)",
 }
 
@@ -73,8 +73,8 @@ const LocaleSelector = () => {
 								onSelectChange(language);
 							}}
 							className={`
-                  cursor-pointer hover:bg-[#454849]! text-white/80!
-                  ${locale === language.code ? "font-bold" : ""}`}
+								p-3 cursor-pointer hover:bg-[#454849]! text-white/80!
+								${locale === language.code ? "font-bold" : ""}`}
 						>
 							{language.label}
 						</DropdownMenuItem>
