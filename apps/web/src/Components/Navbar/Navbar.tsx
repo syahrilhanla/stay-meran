@@ -13,7 +13,7 @@ const Navbar = () => {
 					<Image src={"/Union.svg"} alt="Logo" width={40} height={40} />
 				</div>
 				<ul
-					className={`hidden md:flex gap-12 mx-12 text-white ${dmSans.className}`}
+					className={`hidden lg:flex gap-12 mx-12 text-white ${dmSans.className}`}
 				>
 					<li className="hover:text-white cursor-pointer">Home</li>
 					<li className="hover:text-white cursor-pointer">Our Stays</li>
@@ -22,7 +22,9 @@ const Navbar = () => {
 				</ul>
 			</div>
 
-			<LocaleSelector />
+			<div className="relative mt-2 md:absolute hidden lg:block md:right-10">
+				<LocaleSelector />
+			</div>
 		</nav>
 	);
 };

@@ -48,40 +48,38 @@ const LocaleSelector = () => {
 	}));
 
 	return (
-		<div className="relative mt-4 md:mt-0 md:absolute md:right-10">
-			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<button
-						type="button"
-						className="flex items-center gap-3 text-white px-4 py-2 cursor-pointer hover:bg-slate-300/20 rounded-md duration-300"
-					>
-						<Globe strokeWidth={2} />
-						<span className="font-light">
-							{TranslationLocale[locale] || TranslationLocale.en}
-						</span>
-						<ChevronDown strokeWidth={1} />
-					</button>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent
-					align="end"
-					className="w-40 bg-[#18191A]/90 border-none p-2 text-white/80"
+		<DropdownMenu>
+			<DropdownMenuTrigger asChild>
+				<button
+					type="button"
+					className="flex items-center gap-3 text-white px-4 py-2 cursor-pointer hover:bg-slate-300/20 rounded-md duration-300"
 				>
-					{languages.map((language) => (
-						<DropdownMenuItem
-							key={language.code}
-							onClick={() => {
-								onSelectChange(language);
-							}}
-							className={`
+					<Globe strokeWidth={2} />
+					<span className="font-light">
+						{TranslationLocale[locale] || TranslationLocale.en}
+					</span>
+					<ChevronDown strokeWidth={1} />
+				</button>
+			</DropdownMenuTrigger>
+			<DropdownMenuContent
+				align="end"
+				className="w-40 bg-[#18191A]/90 border-none p-2 text-white/80"
+			>
+				{languages.map((language) => (
+					<DropdownMenuItem
+						key={language.code}
+						onClick={() => {
+							onSelectChange(language);
+						}}
+						className={`
 								p-3 cursor-pointer hover:bg-[#454849]! text-white/80!
 								${locale === language.code ? "font-bold" : ""}`}
-						>
-							{language.label}
-						</DropdownMenuItem>
-					))}
-				</DropdownMenuContent>
-			</DropdownMenu>
-		</div>
+					>
+						{language.label}
+					</DropdownMenuItem>
+				))}
+			</DropdownMenuContent>
+		</DropdownMenu>
 	);
 };
 
