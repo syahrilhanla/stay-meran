@@ -1,8 +1,13 @@
 import Image from "next/image";
 import { DM_Sans } from "next/font/google";
 
-import { Button } from "../ui/button";
 import LocaleSelector from "./LocaleSelector";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
 
@@ -26,13 +31,35 @@ const Navbar = () => {
 					<li className="hover:text-white cursor-pointer">About Us</li>
 				</ul>
 
-				<Button
-					className="block lg:hidden text-white"
-					type="button"
-					variant={"ghost"}
-				>
-					Menu
-				</Button>
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							className="block lg:hidden text-white font-light"
+							type="button"
+							variant={"ghost"}
+						>
+							Menu
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent
+						align="end"
+						className="w-fit bg-[#18191A]/80 border-none p-2 text-white/80"
+					>
+						<ul className={`${dmSans.className}`}>
+							<li className="p-4 hover:text-white cursor-pointer">Home</li>
+							<li className="p-4 hover:text-white cursor-pointer">Our Stays</li>
+							<li className="p-4 hover:text-white cursor-pointer">
+								Why Merano
+							</li>
+							<li className="pt-2 px-4 pb-4 hover:text-white cursor-pointer">
+								About Us
+							</li>
+						</ul>
+						<span className="mt-2">
+							<LocaleSelector />
+						</span>
+					</DropdownMenuContent>
+				</DropdownMenu>
 			</div>
 
 			<div className="relative mt-2 md:absolute hidden lg:block md:right-10">
