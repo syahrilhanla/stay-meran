@@ -1,8 +1,22 @@
+"use client";
+
+import { useState } from "react";
+import { DateRange } from "react-day-picker";
+
 import { Search, CalendarDays, UserRound } from "lucide-react";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Calendar } from "../ui/calendar";
+
+import { formatDateRange } from "@/lib/helpers";
 
 const SearchFilter = () => {
+	const [selectedDate, setSelectedDate] = useState<DateRange>({
+		from: undefined,
+		to: undefined,
+	});
+
 	return (
 		<div className="w-full max-w-2xl mx-auto rounded-2xl shadow-lg mt-24">
 			{/* Labels grid aligned with inputs */}
@@ -14,17 +28,40 @@ const SearchFilter = () => {
 			</div>
 			<div className="rounded-2xl bg-gray-300/10 p-1.5 overflow-hidden backdrop-blur-xs">
 				<div className="grid grid-cols-[1fr_1px_1fr_3.5rem] overflow-visible">
-					{/* Inputs */}
-					<button
-						aria-label="Select Date"
-						type="button"
-						className="flex items-center gap-2 flex-1 px-4 py-3 bg-white/90 rounded-l-2xl border-r border-gray-400 cursor-pointer"
-					>
-						<CalendarDays className="w-6 h-6 text-[#18191A]" />
-						<p className="text-[#707577] font-light">Select Date</p>
-					</button>
+					{/* Date Picker */}
+					<Popover>
+						<PopoverTrigger asChild>
+							<button
+								aria-label="Select Date"
+								type="button"
+								className="flex items-center gap-2 flex-1 px-4 py-3 bg-white/90 rounded-l-2xl border-r border-gray-400 cursor-pointer"
+							>
+								<CalendarDays className="w-6 h-6 text-[#18191A]" />
+								<p className="text-[#707577] font-light">
+									{selectedDate.from
+										? `${formatDateRange(selectedDate)}`
+										: "Select Date"}
+								</p>
+							</button>
+						</PopoverTrigger>
+
+						<PopoverContent className="w-auto p-0">
+							<Calendar
+								mode="range"
+								selected={selectedDate}
+								numberOfMonths={2}
+								onSelect={(selectedDate) => {
+									if (!selectedDate) return;
+									setSelectedDate(selectedDate);
+								}}
+							/>
+						</PopoverContent>
+					</Popover>
+
 					{/* Divider */}
 					<div className="w-px my-2" />
+
+					{/* Guest Selector */}
 					<button
 						aria-label="Select Person"
 						type="button"
