@@ -1,4 +1,6 @@
-import Hero from "@/Components/HeroSection/Hero";
+import Hero from "@/components/HeroSection/Hero";
+
+// TODO: make page to be static
 
 export default async function Home() {
 	return (
