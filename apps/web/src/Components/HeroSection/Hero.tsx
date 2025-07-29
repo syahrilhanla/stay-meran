@@ -24,7 +24,7 @@ const Hero = () => {
 				<div className="text-center max-w-2xl flex flex-col gap-8">
 					<h2 className="text-white font-light tracking-[.25em]">STAY MERAN</h2>
 
-					<h1 className="text-4xl md:text-6xl mx-auto text-white leading-tight drop-shadow-lg font-normal">
+					<h1 className="text-4xl md:text-6xl mx-auto text-white leading-tight font-semibold">
 						Three Unique Stays in the Heart of Merano
 					</h1>
 				</div>
