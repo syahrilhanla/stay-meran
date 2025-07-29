@@ -5,6 +5,11 @@
     "arrivalLabel": "Arrival & Departure",
     "guestLabel": "Persons",
     "arrivalPlaceholder": "Select Date",
-    "guestPlaceholder": "0 Person"
+    "guestPlaceholder": "0 Person",
+    "selectGuestTitle": "Select Guests",
+    "selectGuestSubtitle": "Enter the number of guests below",
+    "minAdultError": "At least 1 adult is required.",
+    "negativeChildrenError": "Children cannot be negative.",
+    "childrenNoAdultError": "Children cannot be selected without at least 1 adult."
  }
 }

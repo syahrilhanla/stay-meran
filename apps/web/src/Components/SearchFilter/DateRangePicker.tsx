@@ -5,6 +5,7 @@ import { Calendar } from "../ui/calendar";
 import { formatDateRange } from "@/lib/helpers";
 import { CalendarDays } from "lucide-react";
 import { DateRange } from "react-day-picker";
+import { useTranslations } from "next-intl";
 
 interface Props {
 	selectedDate: DateRange;
@@ -12,11 +13,13 @@ interface Props {
 }
 
 const DateRangePicker = ({ selectedDate, setSelectedDate }: Props) => {
+	const t = useTranslations("Hero");
+
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
 				<button
-					aria-label="Select Date"
+					aria-label={t("arrivalPlaceholder")}
 					type="button"
 					className="flex items-center gap-2 flex-1 px-4 py-3 bg-white/90 rounded-l-2xl border-r border-gray-400 cursor-pointer"
 				>
@@ -24,7 +27,7 @@ const DateRangePicker = ({ selectedDate, setSelectedDate }: Props) => {
 					<p className="text-[#707577] font-light">
 						{selectedDate.from
 							? `${formatDateRange(selectedDate)}`
-							: "Select Date"}
+							: t("arrivalPlaceholder")}
 					</p>
 				</button>
 			</PopoverTrigger>

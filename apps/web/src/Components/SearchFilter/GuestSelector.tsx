@@ -12,6 +12,7 @@ import {
 import { Button } from "../ui/button";
 
 import { UserRound, Plus, Minus } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type Guests = { adults: number; children: number };
 
@@ -23,8 +24,11 @@ interface Props {
 const GuestSelector = ({ guests, onGuestChange }: Props) => {
 	const [error, setError] = useState<string | null>(null);
 
+	const t = useTranslations("Hero");
+
 	const formatGuestCount = (guests: Guests) => {
-		if (guests.adults === 0 && guests.children === 0) return "0 Person";
+		if (guests.adults === 0 && guests.children === 0)
+			return t("guestPlaceholder");
 
 		return `${guests.adults} Adult${guests.adults > 1 ? "s" : ""} ${
 			guests.children > 0
@@ -53,17 +57,17 @@ const GuestSelector = ({ guests, onGuestChange }: Props) => {
 
 		// Error: minimum 1 adult
 		if (newAdults < 1) {
-			setError("At least 1 adult is required.");
+			setError(t("minAdultError"));
 			return;
 		}
 		// Error: children cannot be negative
 		if (newChildren < 0) {
-			setError("Children cannot be negative.");
+			setError(t("negativeChildrenError"));
 			return;
 		}
 		// Error: prohibit 1+ children with 0 adults
 		if (newAdults === 0 && newChildren > 0) {
-			setError("Children cannot be selected without at least 1 adult.");
+			setError(t("childrenNoAdultError"));
 			return;
 		}
 
@@ -81,7 +85,7 @@ const GuestSelector = ({ guests, onGuestChange }: Props) => {
 		<Popover>
 			<PopoverTrigger asChild>
 				<button
-					aria-label="Select Person"
+					aria-label={t("guestPlaceholder")}
 					type="button"
 					className="flex items-center gap-2 flex-1 px-4 py-3 bg-white/90 cursor-pointer"
 				>
@@ -94,9 +98,9 @@ const GuestSelector = ({ guests, onGuestChange }: Props) => {
 			<PopoverContent className="w-auto p-0">
 				<Card className="w-72 py-3 px-0 border-none shadow-lg">
 					<CardHeader>
-						<CardTitle className="text-sm">Select Guests</CardTitle>
+						<CardTitle className="text-sm">{t("selectGuestTitle")}</CardTitle>
 						<CardDescription className="-mt-2 text-sm text-gray-500">
-							Enter the number of guests below
+							{t("selectGuestSubtitle")}
 							<p>{error && <span className="text-red-500">{error}</span>}</p>
 						</CardDescription>
 						<CardContent className="p-0">

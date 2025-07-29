@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 
 import DateRangePicker from "./DateRangePicker";
 import GuestSelector from "./GuestSelector";
+import { useTranslations } from "next-intl";
 
 const SearchFilter = () => {
 	const [searchForm, setSearchForm] = useState<{
@@ -19,14 +20,18 @@ const SearchFilter = () => {
 		guests: { adults: 0, children: 0 },
 	});
 
+	const t = useTranslations("Hero");
+
 	return (
 		<div className="w-full max-w-2xl mx-auto rounded-2xl shadow-lg mt-24">
 			{/* Labels grid aligned with inputs */}
 			<div className="grid grid-cols-[1fr_1px_1fr_3.5rem] px-1 mb-1">
 				<Label className="text-white font-light ml-0.5">
-					Arrival & Departure
+					{t("arrivalLabel")}
 				</Label>
-				<Label className="text-white font-light ml-0.5">Person</Label>
+				<Label className="text-white font-light ml-0.5">
+					{t("guestLabel")}
+				</Label>
 			</div>
 			<div className="rounded-2xl bg-gray-300/10 p-1.5 overflow-hidden backdrop-blur-xs">
 				<div className="grid grid-cols-[1fr_1px_1fr_3.5rem] overflow-visible">
