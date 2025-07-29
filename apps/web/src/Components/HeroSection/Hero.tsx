@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "../Navbar/Navbar";
-import SearchFilter from "./SearchFilter";
+import SearchFilter from "../SearchFilter/SearchFilter";
 
 const Hero = () => {
 	return (
