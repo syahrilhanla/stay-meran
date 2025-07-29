@@ -6,6 +6,7 @@ import { DateRange } from "react-day-picker";
 import { Label } from "../ui/label";
 import DateRangePicker from "./DateRangePicker";
 import GuestSelector from "./GuestSelector";
+import { Search } from "lucide-react";
 
 const MobileSearchFilter = () => {
 	const [searchForm, setSearchForm] = useState<{
@@ -35,7 +36,7 @@ const MobileSearchFilter = () => {
 				/>
 			</div>
 
-			<div>
+			<div className="space-y-2">
 				<Label className="text-[#18191A] font-medium ml-0.5">
 					{t("guestLabel")}
 				</Label>
@@ -49,6 +50,15 @@ const MobileSearchFilter = () => {
 					}}
 				/>
 			</div>
+
+			<button
+				type="button"
+				className="w-full bg-[#18191A] hover:bg-[#18191A]/80 text-white text-sm
+					p-3 font-extralight rounded-2xl cursor-pointer flex items-center justify-center gap-2"
+			>
+				Find It
+				<Search className="h-6 w-6 text-3xl" />
+			</button>
 		</div>
 	);
 };

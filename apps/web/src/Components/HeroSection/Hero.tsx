@@ -25,7 +25,7 @@ const Hero = async () => {
 			{/* Content */}
 			<div className="relative z-20 w-full h-full flex flex-col justify-center items-center px-4">
 				{/* Headings */}
-				<div className="text-center max-w-2xl flex flex-col gap-8">
+				<div className="-mt-12 lg:-mt-0 text-center max-w-2xl flex flex-col gap-8">
 					<h2 className="text-white font-light tracking-[.25em]">
 						{t("header")}
 					</h2>
