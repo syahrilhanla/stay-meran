@@ -30,7 +30,7 @@ const Hero = async () => {
 						{t("header")}
 					</h2>
 
-					<h1 className="text-4xl md:text-6xl mx-auto text-white leading-tight font-semibold">
+					<h1 className="text-4xl md:text-6xl mx-auto text-white leading-tight font-medium lg:font-semibold">
 						{t("heroSubtitle")}
 					</h1>
 				</div>
