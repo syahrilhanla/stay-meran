@@ -1,0 +1,10 @@
+{
+ "Hero" : {
+    "header": "STAY MERAN",
+    "heroSubtitle": "Three Unique Stays in the Heart of Merano",
+    "arrivalLabel": "Arrival & Departure",
+    "guestLabel": "Persons",
+    "arrivalPlaceholder": "Select Date",
+    "guestPlaceholder": "0 Person"
+ }
+}
