@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 
 const Hero = () => {
 	return (
-		<section className="relative w-full h-[90dvh] flex justify-center items-center rounded-lg overflow-hidden shadow-lg">
+		<section className="relative w-full h-[90dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
 			<Navbar />
 
 			{/* Background image */}

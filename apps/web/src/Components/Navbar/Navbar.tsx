@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronDown, Globe } from "lucide-react";
+import { DM_Sans } from "next/font/google";
+
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -16,7 +18,6 @@ const LANGUAGES = [
 	{ code: "de", label: "German (DE)" },
 ];
 
-import { DM_Sans } from "next/font/google";
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = () => {
@@ -53,14 +54,19 @@ const Navbar = () => {
 							<ChevronDown strokeWidth={1} />
 						</button>
 					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end" className="w-40">
-						{LANGUAGES.map((lang) => (
+					<DropdownMenuContent
+						align="end"
+						className="w-40 bg-[#18191A]/90 border-none p-2 text-white/80"
+					>
+						{LANGUAGES.map((language) => (
 							<DropdownMenuItem
-								key={lang.code}
-								onClick={() => setSelectedLang(lang)}
-								className={selectedLang.code === lang.code ? "font-bold" : ""}
+								key={language.code}
+								onClick={() => setSelectedLang(language)}
+								className={`
+                  cursor-pointer hover:bg-[#454849]! text-white/80!
+                  ${selectedLang.code === language.code ? "font-bold" : ""}`}
 							>
-								{lang.label}
+								{language.label}
 							</DropdownMenuItem>
 						))}
 					</DropdownMenuContent>
