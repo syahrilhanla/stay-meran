@@ -1,0 +1,15 @@
+{
+ "Hero" : {
+    "header": "STAY MERAN",
+    "heroSubtitle": "Tre soggiorni unici nel cuore di Merano",
+    "arrivalLabel": "Arrivo e Partenza",
+    "guestLabel": "Persona",
+    "arrivalPlaceholder": "Seleziona data",
+    "guestPlaceholder": "0 Persona",
+    "selectGuestTitle": "Seleziona ospiti",
+    "selectGuestSubtitle": "Inserisci il numero di ospiti qui sotto",
+    "minAdultError": "È richiesto almeno 1 adulto.",
+    "negativeChildrenError": "Il numero di bambini non può essere negativo.",
+    "childrenNoAdultError": "I bambini non possono essere selezionati senza almeno 1 adulto."
+ }
+}
