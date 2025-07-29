@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "../Navbar/Navbar";
+import SearchFilter from "./SearchFilter";
 
 const Hero = () => {
 	return (
@@ -29,6 +30,7 @@ const Hero = () => {
 				</div>
 
 				{/* Search Bar */}
+				<SearchFilter />
 			</div>
 		</section>
 	);
