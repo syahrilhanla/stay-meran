@@ -36,6 +36,16 @@ const DateRangePicker = ({ selectedDate, setSelectedDate }: Props) => {
 					numberOfMonths={2}
 					onSelect={(selectedDate) => {
 						if (!selectedDate) return;
+						// If only 'from' is selected, auto set 'to' to next day
+
+						if (selectedDate.from && selectedDate.to === selectedDate.from) {
+							const nextDay = new Date(selectedDate.from);
+							nextDay.setDate(nextDay.getDate() + 1);
+
+							setSelectedDate({ from: selectedDate.from, to: nextDay });
+							return;
+						}
+
 						setSelectedDate(selectedDate);
 					}}
 				/>
