@@ -2,12 +2,13 @@ import Image from "next/image";
 import Navbar from "../Navbar/Navbar";
 import SearchFilter from "../SearchFilter/SearchFilter";
 import { getTranslations } from "next-intl/server";
+import MobileSearchFilter from "../SearchFilter/MobileSearchFilter";
 
 const Hero = async () => {
 	const t = await getTranslations("Hero");
 
 	return (
-		<section className="relative w-full h-[90dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
+		<section className="relative w-full h-[85dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
 			<Navbar />
 
 			{/* Background image */}
@@ -35,7 +36,14 @@ const Hero = async () => {
 				</div>
 
 				{/* Search Bar */}
-				<SearchFilter />
+				<div className="w-full hidden lg:block">
+					<SearchFilter />
+				</div>
+
+				{/* Mobile Search Bar at bottom of section */}
+				<div className="block lg:hidden w-full absolute left-0 right-0 bottom-0 z-20 px-4 pb-4">
+					<MobileSearchFilter />
+				</div>
 			</div>
 		</section>
 	);
