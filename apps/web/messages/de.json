@@ -1,0 +1,15 @@
+{
+ "Hero" : {
+    "header": "STAY MERAN",
+    "heroSubtitle": "Drei einzigartige Aufenthalte im Herzen von Meran",
+    "arrivalLabel": "Anreise & Abreise",
+    "guestLabel": "Person",
+    "arrivalPlaceholder": "Datum auswählen",
+    "guestPlaceholder": "0 Person",
+    "selectGuestTitle": "Gäste auswählen",
+    "selectGuestSubtitle": "Geben Sie unten die Anzahl der Gäste ein",
+    "minAdultError": "Mindestens 1 Erwachsener ist erforderlich.",
+    "negativeChildrenError": "Kinderanzahl kann nicht negativ sein.",
+    "childrenNoAdultError": "Kinder können nicht ohne mindestens 1 Erwachsenen ausgewählt werden."
+ }
+}
