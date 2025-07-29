@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Navbar from "../Navbar/Navbar";
 import SearchFilter from "../SearchFilter/SearchFilter";
+import { getTranslations } from "next-intl/server";
 
-const Hero = () => {
+const Hero = async () => {
+	const t = await getTranslations("Hero");
+
 	return (
 		<section className="relative w-full h-[90dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
 			<Navbar />
@@ -22,10 +25,12 @@ const Hero = () => {
 			<div className="relative z-20 w-full h-full flex flex-col justify-center items-center px-4">
 				{/* Headings */}
 				<div className="text-center max-w-2xl flex flex-col gap-8">
-					<h2 className="text-white font-light tracking-[.25em]">STAY MERAN</h2>
+					<h2 className="text-white font-light tracking-[.25em]">
+						{t("header")}
+					</h2>
 
 					<h1 className="text-4xl md:text-6xl mx-auto text-white leading-tight font-semibold">
-						Three Unique Stays in the Heart of Merano
+						{t("heroSubtitle")}
 					</h1>
 				</div>
 
