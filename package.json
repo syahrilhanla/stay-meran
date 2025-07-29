@@ -1,0 +1,24 @@
+{
+  "name": "stay-meran",
+  "version": "1.0.0",
+  "workspaces": ["apps/web", "apps/studio"],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syahrilhanla/stay-meran.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syahrilhanla/stay-meran/issues"
+  },
+  "homepage": "https://github.com/syahrilhanla/stay-meran#readme"
+}
