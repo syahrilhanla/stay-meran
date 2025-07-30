@@ -16,8 +16,28 @@ export const accommodationSchema = defineType({
       },
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
+      name: 'en_description',
+      title: 'en_Description',
+      type: 'string',
+      options: {
+        documentInternationalization: {
+          exclude: true,
+        },
+      },
+    }),
+    defineField({
+      name: 'de_description',
+      title: 'de_Description',
+      type: 'string',
+      options: {
+        documentInternationalization: {
+          exclude: true,
+        },
+      },
+    }),
+    defineField({
+      name: 'it_description',
+      title: 'it_Description',
       type: 'string',
       options: {
         documentInternationalization: {
