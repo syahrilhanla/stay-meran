@@ -1,6 +1,7 @@
+import { accommodationSchema } from "./accommodation";
 import { heroSchema } from "./hero";
 
 export const schemaTypes = [
-  heroSchema,
+  heroSchema, accommodationSchema
   // Add other schema types here as needed
 ]
