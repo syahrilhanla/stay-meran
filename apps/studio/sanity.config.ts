@@ -8,8 +8,8 @@ export default defineConfig({
   name: 'default',
   title: 'stay-meran-studio',
 
-  projectId: 'eioprbd5',
-  dataset: 'production',
+  projectId: String(process.env.SANITY_PROJECT_ID),
+  dataset: String(process.env.SANITY_DATASET),
 
   plugins: [structureTool(), visionTool(), documentInternationalization({
     // Required configuration
