@@ -11,7 +11,7 @@ interface Props {
 const GalleryList = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
 	return (
 		<ul className="list-none grid lg:order-1 order-2 -mt-8 lg:-mt-0">
-			{galleryItems.map((item, idx) => (
+			{galleryItems.map((item) => (
 				<li
 					key={item.title}
 					onClick={() => setActiveInfo(item)}
