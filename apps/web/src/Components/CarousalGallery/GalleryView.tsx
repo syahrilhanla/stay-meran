@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { GalleryItem } from "./CarousalGallery";
 
 const images = [
 	"/gallery-4.jpg",
@@ -10,14 +10,18 @@ const images = [
 	"/gallery-3.jpg",
 ];
 
-const GalleryView = () => {
-	const [activeIndex, setActiveIndex] = useState(0);
+interface Props {
+	setActiveInfo: (info: GalleryItem) => void;
+	activeInfo: GalleryItem;
+	galleryItems: GalleryItem[];
+}
 
+const GalleryView = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
 	return (
 		<div className="max-w-xl rounded-3xl overflow-hidden relative bg-white">
 			<div className="aspect-[4/3] w-full relative">
 				<Image
-					src={images[activeIndex]}
+					src={images[galleryItems.indexOf(activeInfo)]}
 					alt="Merano view"
 					fill
 					className="object-cover object-center rounded-3xl"
@@ -29,10 +33,12 @@ const GalleryView = () => {
 				{images.map((_, idx) => (
 					<span
 						key={idx}
-						className={`h-2 w-10 rounded-full transition-all duration-200 ${
-							idx === activeIndex ? "bg-white" : "bg-white/30"
+						className={`h-2 w-10 rounded-full cursor-pointer transition-all duration-200 ${
+							idx === galleryItems.indexOf(activeInfo)
+								? "bg-white"
+								: "bg-white/30"
 						}`}
-						onClick={() => setActiveIndex(idx)}
+						onClick={() => setActiveInfo(galleryItems[idx])}
 					/>
 				))}
 			</div>
