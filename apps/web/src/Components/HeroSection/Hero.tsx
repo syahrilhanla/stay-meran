@@ -1,7 +1,8 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
+
 import Navbar from "../Navbar/Navbar";
 import SearchFilter from "../SearchFilter/SearchFilter";
-import { getTranslations } from "next-intl/server";
 import MobileSearchFilter from "../SearchFilter/MobileSearchFilter";
 
 // TODO:
@@ -12,7 +13,7 @@ const Hero = async () => {
 	const t = await getTranslations("Hero");
 
 	return (
-		<section className="relative w-full h-[85dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
+		<section className="relative w-full h-[95dvh] lg:h-[85dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
 			<Navbar />
 
 			{/* Background image */}
@@ -29,7 +30,7 @@ const Hero = async () => {
 			{/* Content */}
 			<div className="relative z-20 w-full h-full flex flex-col justify-center items-center px-4">
 				{/* Headings */}
-				<div className="-mt-12 lg:-mt-0 text-center max-w-2xl flex flex-col gap-8">
+				<div className="-mt-44 lg:-mt-0 text-center max-w-2xl flex flex-col gap-8">
 					<h2 className="text-white font-light tracking-[.25em]">
 						{t("header")}
 					</h2>
