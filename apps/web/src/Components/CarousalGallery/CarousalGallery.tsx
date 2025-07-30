@@ -11,6 +11,8 @@ export type GalleryItem = {
 	image: string;
 };
 
+// TODO:
+// 1. replace static data with Sanity query
 const galleryItems = [
 	{
 		title: "Breathtaking Nature",
