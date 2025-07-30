@@ -11,14 +11,16 @@ interface Props {
 }
 
 const GalleryView = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
+	const imageSrc = galleryItems[galleryItems.indexOf(activeInfo)]?.image;
+
 	return (
-		<div className="max-w-xl rounded-3xl overflow-hidden relative bg-white">
+		<div className="lg:order-2 order-1 max-w-full lg:max-w-xl flex justify-start rounded-3xl overflow-hidden relative ">
 			<div className="aspect-[4/3] w-full relative">
 				<Image
-					src={galleryItems[galleryItems.indexOf(activeInfo)].image}
+					src={imageSrc || "/gallery-4.jpg"}
 					alt={activeInfo.title}
 					fill
-					className="object-cover object-center rounded-3xl"
+					className="w-auto h-auto object-cover object-center rounded-3xl"
 					priority
 				/>
 			</div>

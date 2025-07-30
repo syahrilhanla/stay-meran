@@ -10,7 +10,7 @@ interface Props {
 
 const GalleryList = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
 	return (
-		<ul className="list-none grid">
+		<ul className="list-none grid lg:order-1 order-2">
 			{galleryItems.map((item, idx) => (
 				<li
 					key={item.title}
@@ -19,7 +19,10 @@ const GalleryList = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
             cursor-pointer rounded-2xl ${activeInfo === item ? "bg-white" : "bg-none"}`}
 				>
 					{/* fixed width */}
-					<div className="w-138 flex flex-col gap-2 justify-end items-start">
+					<div
+						className="xl:w-138 lg:w-100 w-full duration-300
+              flex flex-col gap-2 justify-end items-start"
+					>
 						<h5 className="text-xl lg:text-2xl font-medium text-[#18191A]">
 							{item.title}
 						</h5>

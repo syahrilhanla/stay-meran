@@ -45,8 +45,8 @@ const CarousalGallery = () => {
 	const [activeInfo, setActiveInfo] = useState<GalleryItem>(galleryItems[0]);
 
 	return (
-		<section className="bg-[#F8FAFB] w-screen">
-			<div className="grid grid-cols-2 gap-16">
+		<section className="bg-[#F8FAFB] lg:w-screen">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mx-4 xl:mx-0">
 				<GalleryList
 					setActiveInfo={setActiveInfo}
 					activeInfo={activeInfo}

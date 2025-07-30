@@ -3,8 +3,8 @@ import CarousalGallery from "../CarousalGallery/CarousalGallery";
 const DestinationInfoSection = () => {
 	return (
 		<section
-			className="w-screen relative left-1/2 right-1/2
-		 -mx-[50.5dvw] py-10 bg-[#F8FAFB] grid gap-14"
+			className="lg:w-screen relative lg:left-1/2 lg:right-1/2
+		 lg:-mx-[50.5dvw] py-10 bg-[#F8FAFB] grid gap-14"
 		>
 			<div className="mx-4 lg:mx-38 flex flex-col gap-12 justify-center items-center">
 				<div className="w-full grid gap-5">
