@@ -34,7 +34,8 @@ const GalleryList = () => {
 				<li
 					key={item.title}
 					onClick={() => setActiveIndex(idx)}
-					className={`flex flex-col justify-end items-end cursor-pointer rounded-2xl p-4 ${activeIndex === idx ? "bg-white" : "bg-none"}`}
+					className={`h-fit p-4 flex flex-col justify-end items-end 
+            cursor-pointer rounded-2xl ${activeIndex === idx ? "bg-white" : "bg-none"}`}
 				>
 					{/* fixed width */}
 					<div className="w-138 flex flex-col gap-2 justify-end items-start">
