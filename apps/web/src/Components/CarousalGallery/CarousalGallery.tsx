@@ -59,7 +59,7 @@ const CarousalGallery = () => {
 					galleryItems={galleryItems}
 				/>
 
-				<span className="order-3 lg:hidden -mt-8">
+				<span className="order-3 lg:hidden -mt-4">
 					<DotsPagination
 						activeInfo={activeInfo}
 						setActiveInfo={setActiveInfo}
