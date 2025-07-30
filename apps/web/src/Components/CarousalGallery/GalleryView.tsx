@@ -25,11 +25,13 @@ const GalleryView = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
 				/>
 			</div>
 
-			<DotsPagination
-				activeInfo={activeInfo}
-				setActiveInfo={setActiveInfo}
-				galleryItems={galleryItems}
-			/>
+			<span className="lg:absolute hidden lg:block left-0 right-0 bottom-6 ">
+				<DotsPagination
+					activeInfo={activeInfo}
+					setActiveInfo={setActiveInfo}
+					galleryItems={galleryItems}
+				/>
+			</span>
 		</div>
 	);
 };

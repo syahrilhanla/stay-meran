@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import GalleryList from "./GalleryList";
 import GalleryView from "./GalleryView";
+import DotsPagination from "./DotsPagination";
 
 export type GalleryItem = {
 	title: string;
@@ -57,6 +58,14 @@ const CarousalGallery = () => {
 					activeInfo={activeInfo}
 					galleryItems={galleryItems}
 				/>
+
+				<span className="order-3 lg:hidden -mt-8">
+					<DotsPagination
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
+						galleryItems={galleryItems}
+					/>
+				</span>
 			</div>
 		</section>
 	);
