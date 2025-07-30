@@ -1,7 +1,7 @@
 {
   "name": "stay-meran",
   "version": "1.0.0",
-  "workspaces": ["apps/web"],
+  "workspaces": ["apps/studio"],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
