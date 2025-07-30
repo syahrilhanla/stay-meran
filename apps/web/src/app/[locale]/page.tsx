@@ -1,4 +1,4 @@
-import Hero from "@/components/HeroSection/Hero";
+import Hero from "@/Components/HeroSection/Hero";
 
 // TODO: make page to be static
 
