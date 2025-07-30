@@ -1,7 +1,5 @@
 {
  "Hero" : {
-    "header": "STAY MERAN",
-    "heroSubtitle": "Tre soggiorni unici nel cuore di Merano",
     "arrivalLabel": "Arrivo e Partenza",
     "guestLabel": "Persona",
     "arrivalPlaceholder": "Seleziona data",
