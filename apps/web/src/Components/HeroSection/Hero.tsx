@@ -4,6 +4,10 @@ import SearchFilter from "../SearchFilter/SearchFilter";
 import { getTranslations } from "next-intl/server";
 import MobileSearchFilter from "../SearchFilter/MobileSearchFilter";
 
+// TODO:
+// - Make this page static
+// - FIX: Page subtitle got covered by the search bar on mobile (mid-size)
+
 const Hero = async () => {
 	const t = await getTranslations("Hero");
 

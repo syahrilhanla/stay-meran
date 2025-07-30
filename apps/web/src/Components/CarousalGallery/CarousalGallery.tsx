@@ -1,0 +1,74 @@
+"use client";
+
+import { useState } from "react";
+
+import GalleryList from "./GalleryList";
+import GalleryView from "./GalleryView";
+import DotsPagination from "./DotsPagination";
+
+export type GalleryItem = {
+	title: string;
+	description: string;
+	image: string;
+};
+
+// TODO:
+// 1. replace static data with Sanity query
+const galleryItems = [
+	{
+		title: "Breathtaking Nature",
+		description:
+			"Surrounded by majestic mountains, rolling vineyards, and scenic walking trails.",
+		image: "/gallery-4.jpg",
+	},
+	{
+		title: "Rich Culture",
+		description:
+			"Experience the rich history and vibrant culture of Merano through its museums, art galleries, and local festivals.",
+		image: "/gallery-2.jpg",
+	},
+	{
+		title: "Culinary Delights",
+		description:
+			"Indulge in the culinary delights of Merano, from traditional South Tyrolean dishes to innovative gourmet cuisine.",
+
+		image: "/gallery-1.jpg",
+	},
+	{
+		title: "Wellness Relaxation",
+		description:
+			"Unwind and rejuvenate in the serene wellness centers and spas of Merano, offering a range of treatments and therapies.",
+		image: "/gallery-3.jpg",
+	},
+];
+
+const CarousalGallery = () => {
+	const [activeInfo, setActiveInfo] = useState<GalleryItem>(galleryItems[0]);
+
+	return (
+		<section className="bg-[#F8FAFB] lg:w-screen">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mx-4 xl:mx-0">
+				<GalleryList
+					setActiveInfo={setActiveInfo}
+					activeInfo={activeInfo}
+					galleryItems={galleryItems}
+				/>
+				<GalleryView
+					setActiveInfo={setActiveInfo}
+					activeInfo={activeInfo}
+					galleryItems={galleryItems}
+				/>
+
+				<span className="order-3 lg:hidden -mt-4">
+					<DotsPagination
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
+						galleryItems={galleryItems}
+					/>
+				</span>
+			</div>
+		</section>
+	);
+};
+
+export default CarousalGallery;
