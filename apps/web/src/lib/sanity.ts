@@ -86,7 +86,9 @@ export const getGalleryData = async (locale: string) => {
   const title = `${locale}_title`;
   const description = `${locale}_description`;
 
-  const query = `*[_type == "gallery"]{
+  // filter out the "Why Stay in Merano?" section, order by creation date, and limit to 4 items
+  // will be optimized later
+  const query = `*[_type == "gallery" && en_title != "Why Stay in Merano?"] | order(_createdAt asc) [0...4]{
     'title': ${title},
     'description': ${description},
     images {
@@ -110,7 +112,7 @@ export const getGalleryData = async (locale: string) => {
   const galleryData = await client.fetch<{
     title: string;
     description: string;
-    image: {
+    images: {
       asset: {
         _id: string;
         url: string;

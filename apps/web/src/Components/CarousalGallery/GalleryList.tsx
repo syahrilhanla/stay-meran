@@ -1,17 +1,17 @@
 "use client";
 
-import { GalleryItem } from "./CarousalGallery";
+import { GalleryData } from "./CarousalGallery";
 
 interface Props {
-	setActiveInfo: (info: GalleryItem) => void;
-	activeInfo: GalleryItem;
-	galleryItems: GalleryItem[];
+	setActiveInfo: (info: GalleryData) => void;
+	activeInfo: GalleryData;
+	galleryData: GalleryData[];
 }
 
-const GalleryList = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
+const GalleryList = ({ setActiveInfo, activeInfo, galleryData }: Props) => {
 	return (
 		<ul className="list-none grid lg:order-1 order-2 -mt-8 lg:-mt-0">
-			{galleryItems.map((item) => (
+			{galleryData.map((item) => (
 				<li
 					key={item.title}
 					onClick={() => setActiveInfo(item)}
