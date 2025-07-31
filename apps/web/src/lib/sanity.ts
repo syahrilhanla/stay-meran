@@ -125,3 +125,29 @@ export const getGalleryData = async (locale: string) => {
     galleryData
   };
 }
+
+export const getTestimonials = async (locale: string) => {
+  const textField = `${locale}_text`;
+
+  const query = `*[_type == "testimonial"] | order(_createdAt asc) {
+    reviewer,
+    'text': ${textField},
+    avatar {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }`;
+
+  return await client.fetch<{
+    reviewer: string;
+    text: string;
+    avatar: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+  }[]>(query);
+}
