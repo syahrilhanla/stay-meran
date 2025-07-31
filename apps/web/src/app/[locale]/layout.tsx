@@ -18,7 +18,7 @@ export async function generateMetadata({
 	// referring to locale in next-intl config
 	params: { locale: (typeof locales)[number] };
 }): Promise<Metadata> {
-	const { locale } = params;
+	const { locale } = await params;
 	const titles = {
 		en: "Stay Meran - Unique Stays in Merano",
 		it: "Stay Meran - Soggiorni unici a Merano",
@@ -33,10 +33,6 @@ export async function generateMetadata({
 	return {
 		title: titles[locale] || titles.en,
 		description: descriptions[locale] || descriptions.en,
-		viewport: {
-			width: "device-width",
-			initialScale: 1,
-		},
 	};
 }
 
