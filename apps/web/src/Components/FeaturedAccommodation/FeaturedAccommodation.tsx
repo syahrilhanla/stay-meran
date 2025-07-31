@@ -1,12 +1,12 @@
 import { getLocale } from "next-intl/server";
 import AccommodationCard from "./AccommodationCard";
 
+import { getAccommodationData } from "@/lib/sanity";
+
 const FeaturedAccommodation = async () => {
 	const locale = await getLocale();
 
-	const { accommodationList, sectionText } = await import("@/lib/sanity").then(
-		(mod) => mod.getAccommodationData(locale)
-	);
+	const { accommodationList, sectionText } = await getAccommodationData(locale);
 
 	return (
 		<section className="my-16 mx-0 lg:mx-32 flex flex-col gap-12 justify-center items-center">

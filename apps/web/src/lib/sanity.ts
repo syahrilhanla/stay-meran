@@ -20,8 +20,8 @@ type HeroData = {
   };
 };
 
-export const getHeroData = async (selectedLanguage: string) => {
-  const query = `*[_type == "hero" && language == "${selectedLanguage}"][0]{
+export const getHeroData = async (locale: string) => {
+  const query = `*[_type == "hero" && language == "${locale}"][0]{
     language,
     title,
     subtitle,
@@ -36,8 +36,13 @@ export const getHeroData = async (selectedLanguage: string) => {
   return await client.fetch<HeroData>(query);
 }
 
-export const getAccommodationData = async (selectedLanguage: string) => {
-  const description = `${selectedLanguage}_description`;
+export const getAccommodationData = async (locale: string) => {
+  const description = `${locale}_description`;
+
+  const querySectionText = `*[_type == "accommodation" && title == "sectionText"][0]{
+    title,
+    'description': ${description}
+  }`;
 
   const queryAccommodations = `*[_type == "accommodation"][0...3]{
     title,
@@ -51,10 +56,10 @@ export const getAccommodationData = async (selectedLanguage: string) => {
     }
   }`;
 
-  const querySectionText = `*[_type == "accommodation" && title == "sectionText"][0]{
-    title,
-    'description': ${description}
-  }`;
+  const sectionText = await client.fetch<{
+    title: string;
+    description: string;
+  }>(querySectionText);
 
   const accommodationList = await client.fetch<
     {
@@ -69,10 +74,6 @@ export const getAccommodationData = async (selectedLanguage: string) => {
       };
     }[]
   >(queryAccommodations);
-  const sectionText = await client.fetch<{
-    title: string;
-    description: string;
-  }>(querySectionText);
 
   return {
     accommodationList,

@@ -5,15 +5,15 @@ import Navbar from "../Navbar/Navbar";
 import SearchFilter from "../SearchFilter/SearchFilter";
 import MobileSearchFilter from "../SearchFilter/MobileSearchFilter";
 
+import { getHeroData } from "@/lib/sanity";
+
 // TODO:
 // - Make this page static
 
 const Hero = async () => {
 	const locale = await getLocale();
 
-	const heroData = await import("@/lib/sanity").then((mod) =>
-		mod.getHeroData(locale)
-	);
+	const heroData = await getHeroData(locale);
 
 	return (
 		<section className="relative w-full h-[95dvh] lg:h-[85dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
