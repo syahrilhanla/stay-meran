@@ -9,5 +9,9 @@
     "minAdultError": "È richiesto almeno 1 adulto.",
     "negativeChildrenError": "Il numero di bambini non può essere negativo.",
     "childrenNoAdultError": "I bambini non possono essere selezionati senza almeno 1 adulto."
- }
+ },
+  "Accommodation" : {
+   "cardAction": "Scopri Ora",
+   "cardPrice": "A partire da £{price, number} a notte"
+  }
 }

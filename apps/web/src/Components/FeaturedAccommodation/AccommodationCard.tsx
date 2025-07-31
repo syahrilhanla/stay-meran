@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { MoveRight } from "lucide-react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
-import { MoveRight } from "lucide-react";
 
 type Accommodation = {
 	title: string;
@@ -20,6 +22,8 @@ interface Props {
 }
 
 const AccommodationCard = ({ accommodation }: Props) => {
+	const t = useTranslations("Accommodation");
+
 	return (
 		<Card className="w-full py-3 px-0 border-none shadow-none rounded-2xl">
 			<CardHeader className="px-0">
@@ -32,7 +36,7 @@ const AccommodationCard = ({ accommodation }: Props) => {
 						className="w-full h-100 rounded-2xl object-center object-cover"
 					/>
 					<Button className="absolute bottom-3 left-3 bg-white/80 text-[#18191A] backdrop-blur-xs pointer-events-none">
-						Start from £{accommodation.price} / night
+						{t("cardPrice", { price: accommodation.price })}
 					</Button>
 				</CardTitle>
 				<CardContent className="mt-4 grid gap-4 p-0">
@@ -47,7 +51,7 @@ const AccommodationCard = ({ accommodation }: Props) => {
 						className="w-42 h-12 p-4 text-sm cursor-pointer rounded-full border border-[#18191A] bg-white/80 text-[#18191A]"
 						variant="outline"
 					>
-						Discover Now <MoveRight className="ml-1 h-6 w-6" />
+						{t("cardAction")} <MoveRight className="ml-1 h-6 w-6" />
 					</Button>
 				</CardContent>
 			</CardHeader>

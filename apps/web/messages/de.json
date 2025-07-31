@@ -9,5 +9,9 @@
     "minAdultError": "Mindestens 1 Erwachsener ist erforderlich.",
     "negativeChildrenError": "Kinderanzahl kann nicht negativ sein.",
     "childrenNoAdultError": "Kinder können nicht ohne mindestens 1 Erwachsenen ausgewählt werden."
- }
+ },
+   "Accommodation" : {
+      "cardAction": "Jetzt Entdecken",
+      "cardPrice": "Ab £{price, number} pro Nacht"
+   }
 }
