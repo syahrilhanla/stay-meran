@@ -17,11 +17,13 @@ const GalleryView = ({ setActiveInfo, activeInfo, galleryData }: Props) => {
 		<div className="lg:order-2 order-1 max-w-full lg:max-w-xl flex justify-start rounded-3xl overflow-hidden relative ">
 			<div className="aspect-[4/3] w-full relative">
 				<Image
-					src={imageSrc || "/gallery-4.jpg"}
+					src={imageSrc}
 					alt={activeInfo.title}
 					fill
 					className="w-auto h-auto object-cover object-center rounded-3xl"
 					priority
+					quality={50}
+					loading="eager"
 				/>
 			</div>
 

@@ -21,11 +21,13 @@ const Hero = async () => {
 
 			{/* Background image */}
 			<Image
-				src="/hero-bg.jpg"
+				src={heroData.image.asset.url}
 				alt={heroData.title}
 				fill
 				className="object-cover object-center z-0 pointer-events-none"
 				priority
+				quality={50}
+				loading="eager"
 			/>
 			{/* Overlay */}
 			<div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
