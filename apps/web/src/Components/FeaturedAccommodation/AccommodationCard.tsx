@@ -33,6 +33,8 @@ const AccommodationCard = ({ accommodation }: Props) => {
 						alt="Accommodation Image"
 						width={500}
 						height={300}
+						quality={50}
+						loading="lazy"
 						className="w-full h-100 rounded-2xl object-center object-cover"
 					/>
 					<Button className="absolute bottom-3 left-3 bg-white/80 text-[#18191A] backdrop-blur-xs pointer-events-none">

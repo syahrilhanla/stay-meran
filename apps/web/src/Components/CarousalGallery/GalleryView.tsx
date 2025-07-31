@@ -1,27 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { GalleryItem } from "./CarousalGallery";
+import { GalleryData } from "./CarousalGallery";
 import DotsPagination from "./DotsPagination";
 
 interface Props {
-	setActiveInfo: (info: GalleryItem) => void;
-	activeInfo: GalleryItem;
-	galleryItems: GalleryItem[];
+	setActiveInfo: (info: GalleryData) => void;
+	activeInfo: GalleryData;
+	galleryData: GalleryData[];
 }
 
-const GalleryView = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
-	const imageSrc = galleryItems[galleryItems.indexOf(activeInfo)]?.image;
+const GalleryView = ({ setActiveInfo, activeInfo, galleryData }: Props) => {
+	const imageSrc = activeInfo.images?.asset?.url;
 
 	return (
 		<div className="lg:order-2 order-1 max-w-full lg:max-w-xl flex justify-start rounded-3xl overflow-hidden relative ">
 			<div className="aspect-[4/3] w-full relative">
 				<Image
-					src={imageSrc || "/gallery-4.jpg"}
+					src={imageSrc}
 					alt={activeInfo.title}
 					fill
 					className="w-auto h-auto object-cover object-center rounded-3xl"
 					priority
+					quality={50}
+					loading="eager"
 				/>
 			</div>
 
@@ -29,7 +31,7 @@ const GalleryView = ({ setActiveInfo, activeInfo, galleryItems }: Props) => {
 				<DotsPagination
 					activeInfo={activeInfo}
 					setActiveInfo={setActiveInfo}
-					galleryItems={galleryItems}
+					galleryData={galleryData}
 				/>
 			</span>
 		</div>

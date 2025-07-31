@@ -1,6 +1,14 @@
+import { getLocale } from "next-intl/server";
+
+import { getGalleryData } from "@/lib/sanity";
+
 import CarousalGallery from "../CarousalGallery/CarousalGallery";
 
-const DestinationInfoSection = () => {
+const DestinationInfoSection = async () => {
+	const locale = await getLocale();
+
+	const { galleryData, sectionHeader } = await getGalleryData(locale);
+
 	return (
 		<section
 			className="lg:w-screen relative lg:left-1/2 lg:right-1/2
@@ -12,20 +20,15 @@ const DestinationInfoSection = () => {
 						className="text-left text-3xl lg:text-5xl text-[#18191A] 
 							font-medium leading-[150%]"
 					>
-						Why Stay in Merano?
+						{sectionHeader.sectionTitle}
 					</h3>
 					<p className="text-[#454849] text-sm md:text-lg lg:text-xl font-light leading-[200%]">
-						{`Where Nature, Culture, and Relaxation Meet Nestled in the heart of
-						the Alps, Merano is a captivating town known for its picturesque
-						landscapes, vibrant cultural scene, and renowned wellness
-						experiences. Whether you're exploring historic streets, indulging in
-						world-class cuisine, or unwinding in thermal spas, Merano has
-						something for every traveler.`}
+						{sectionHeader.description}
 					</p>
 				</div>
 			</div>
 
-			<CarousalGallery />
+			<CarousalGallery galleryData={galleryData} />
 		</section>
 	);
 };
