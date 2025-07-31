@@ -6,44 +6,23 @@ import GalleryList from "./GalleryList";
 import GalleryView from "./GalleryView";
 import DotsPagination from "./DotsPagination";
 
-export type GalleryItem = {
+export type GalleryData = {
 	title: string;
 	description: string;
-	image: string;
+	images: {
+		asset: {
+			_id: string;
+			url: string;
+		};
+	};
 };
 
-// TODO:
-// 1. replace static data with Sanity query
-const galleryItems = [
-	{
-		title: "Breathtaking Nature",
-		description:
-			"Surrounded by majestic mountains, rolling vineyards, and scenic walking trails.",
-		image: "/gallery-4.jpg",
-	},
-	{
-		title: "Rich Culture",
-		description:
-			"Experience the rich history and vibrant culture of Merano through its museums, art galleries, and local festivals.",
-		image: "/gallery-2.jpg",
-	},
-	{
-		title: "Culinary Delights",
-		description:
-			"Indulge in the culinary delights of Merano, from traditional South Tyrolean dishes to innovative gourmet cuisine.",
+interface Props {
+	galleryData: GalleryData[];
+}
 
-		image: "/gallery-1.jpg",
-	},
-	{
-		title: "Wellness Relaxation",
-		description:
-			"Unwind and rejuvenate in the serene wellness centers and spas of Merano, offering a range of treatments and therapies.",
-		image: "/gallery-3.jpg",
-	},
-];
-
-const CarousalGallery = () => {
-	const [activeInfo, setActiveInfo] = useState<GalleryItem>(galleryItems[0]);
+const CarousalGallery = ({ galleryData }: Props) => {
+	const [activeInfo, setActiveInfo] = useState<GalleryData>(galleryData[0]);
 
 	return (
 		<section className="bg-[#F8FAFB] lg:w-screen">
@@ -51,19 +30,20 @@ const CarousalGallery = () => {
 				<GalleryList
 					setActiveInfo={setActiveInfo}
 					activeInfo={activeInfo}
-					galleryItems={galleryItems}
+					galleryData={galleryData}
 				/>
+
 				<GalleryView
 					setActiveInfo={setActiveInfo}
 					activeInfo={activeInfo}
-					galleryItems={galleryItems}
+					galleryData={galleryData}
 				/>
 
 				<span className="order-3 lg:hidden -mt-4">
 					<DotsPagination
 						activeInfo={activeInfo}
 						setActiveInfo={setActiveInfo}
-						galleryItems={galleryItems}
+						galleryData={galleryData}
 					/>
 				</span>
 			</div>

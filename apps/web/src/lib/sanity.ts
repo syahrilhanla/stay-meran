@@ -80,3 +80,48 @@ export const getAccommodationData = async (locale: string) => {
     sectionText: sectionText,
   }
 };
+
+// fix schema structure later
+export const getGalleryData = async (locale: string) => {
+  const title = `${locale}_title`;
+  const description = `${locale}_description`;
+
+  // filter out the "Why Stay in Merano?" section, order by creation date, and limit to 4 items
+  // will be optimized later
+  const query = `*[_type == "gallery" && en_title != "Why Stay in Merano?"] | order(_createdAt asc) [0...4]{
+    'title': ${title},
+    'description': ${description},
+    images {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }`;
+
+  const sectionHeaderQuery = `*[_type == "gallery" && en_title == "Why Stay in Merano?"][0]{
+    'sectionTitle': ${title},
+    'description': ${description}
+  }`;
+
+  const sectionHeader = await client.fetch<{
+    sectionTitle: string;
+    description: string;
+  }>(sectionHeaderQuery);
+
+  const galleryData = await client.fetch<{
+    title: string;
+    description: string;
+    images: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+  }[]>(query);
+
+  return {
+    sectionHeader,
+    galleryData
+  };
+}
