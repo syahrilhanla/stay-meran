@@ -1,7 +1,5 @@
 {
  "Hero" : {
-    "header": "STAY MERAN",
-    "heroSubtitle": "Tre soggiorni unici nel cuore di Merano",
     "arrivalLabel": "Arrivo e Partenza",
     "guestLabel": "Persona",
     "arrivalPlaceholder": "Seleziona data",
@@ -11,5 +9,9 @@
     "minAdultError": "È richiesto almeno 1 adulto.",
     "negativeChildrenError": "Il numero di bambini non può essere negativo.",
     "childrenNoAdultError": "I bambini non possono essere selezionati senza almeno 1 adulto."
- }
+ },
+  "Accommodation" : {
+   "cardAction": "Scopri Ora",
+   "cardPrice": "A partire da £{price, number} a notte"
+  }
 }

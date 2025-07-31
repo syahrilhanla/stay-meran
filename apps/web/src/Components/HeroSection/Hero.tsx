@@ -1,16 +1,19 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 import Navbar from "../Navbar/Navbar";
 import SearchFilter from "../SearchFilter/SearchFilter";
 import MobileSearchFilter from "../SearchFilter/MobileSearchFilter";
 
+import { getHeroData } from "@/lib/sanity";
+
 // TODO:
 // - Make this page static
-// - FIX: Page subtitle got covered by the search bar on mobile (mid-size)
 
 const Hero = async () => {
-	const t = await getTranslations("Hero");
+	const locale = await getLocale();
+
+	const heroData = await getHeroData(locale);
 
 	return (
 		<section className="relative w-full h-[95dvh] lg:h-[85dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
@@ -19,7 +22,7 @@ const Hero = async () => {
 			{/* Background image */}
 			<Image
 				src="/hero-bg.jpg"
-				alt="Merano city view"
+				alt={heroData.title}
 				fill
 				className="object-cover object-center z-0 pointer-events-none"
 				priority
@@ -32,11 +35,11 @@ const Hero = async () => {
 				{/* Headings */}
 				<div className="-mt-44 lg:-mt-0 text-center max-w-2xl flex flex-col gap-8">
 					<h2 className="text-white font-light tracking-[.25em]">
-						{t("header")}
+						{heroData.title}
 					</h2>
 
 					<h1 className="text-4xl lg:text-6xl mx-auto text-white leading-tight font-medium xl:font-semibold">
-						{t("heroSubtitle")}
+						{heroData.subtitle}
 					</h1>
 				</div>
 

@@ -1,7 +1,5 @@
 {
  "Hero" : {
-    "header": "STAY MERAN",
-    "heroSubtitle": "Three Unique Stays in the Heart of Merano",
     "arrivalLabel": "Arrival & Departure",
     "guestLabel": "Person",
     "arrivalPlaceholder": "Select Date",
@@ -11,5 +9,9 @@
     "minAdultError": "At least 1 adult is required.",
     "negativeChildrenError": "Children cannot be negative.",
     "childrenNoAdultError": "Children cannot be selected without at least 1 adult."
- }
+ },
+ "Accommodation" : {
+   "cardAction": "Discover Now",
+   "cardPrice": "Start from £{price, number} per night"
+}
 }
