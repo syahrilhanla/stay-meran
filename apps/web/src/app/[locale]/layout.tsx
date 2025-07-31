@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { locales } from "../../config";
 
 import "@/app/globals.css";
 
@@ -10,15 +9,16 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
-<link rel="icon" href="/favicon.ico" sizes="any" />;
+
+type Params = Promise<{ locale: string }>;
 
 export async function generateMetadata({
 	params,
 }: {
-	// referring to locale in next-intl config
-	params: { locale: (typeof locales)[number] };
+	params: Params;
 }): Promise<Metadata> {
 	const { locale } = await params;
+
 	const titles = {
 		en: "Stay Meran - Unique Stays in Merano",
 		it: "Stay Meran - Soggiorni unici a Merano",
@@ -31,8 +31,9 @@ export async function generateMetadata({
 	};
 
 	return {
-		title: titles[locale] || titles.en,
-		description: descriptions[locale] || descriptions.en,
+		title: titles[locale as keyof typeof titles] || titles.en,
+		description:
+			descriptions[locale as keyof typeof descriptions] || descriptions.en,
 	};
 }
 
@@ -41,10 +42,10 @@ export default async function LocaleLayout({
 	params,
 }: Readonly<{
 	children: React.ReactNode;
-	params: Promise<{ locale: string }>;
+	params: Params;
 }>) {
 	// Ensure that the incoming `locale` is valid
-	const { locale } = await params;
+	const locale = await params;
 	if (!hasLocale(routing.locales, locale)) {
 		notFound();
 	}
