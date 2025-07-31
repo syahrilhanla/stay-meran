@@ -1,21 +1,19 @@
 import { getLocale } from "next-intl/server";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { getTestimonials } from "@/lib/sanity";
+import { getTestimonialData } from "@/lib/sanity";
 
 const TestimonialSection = async () => {
 	const locale = await getLocale();
-	const testimonialsData = await getTestimonials(locale);
+	const { sectionHeader, testimonials } = await getTestimonialData(locale);
 
 	return (
 		<section className="my-16 mx-0 lg:mx-32 flex flex-col justify-center items-center">
 			<div className="w-full">
 				<h3 className="mb-5 text-4xl lg:text-5xl text-[#18191A] leading-[150%] font-medium text-center">
-					What Our Guests Say At StayMeran
+					{sectionHeader.title}
 				</h3>
 				<p className="text-lg lg:text-xl text-[#454849] leading-[150%] text-center font-light">
-					We take pride in providing an exceptional stay for our guests. See
-					what they have to say about their experiences and why they choose to
-					return.
+					{sectionHeader.description}
 				</p>
 			</div>
 
@@ -28,7 +26,7 @@ const TestimonialSection = async () => {
 							colIdx === 0 ? "" : "hidden sm:flex"
 						}`}
 					>
-						{testimonialsData
+						{testimonials
 							.filter((_, i) => i % 3 === colIdx)
 							.map((testimonial, i) => (
 								<div

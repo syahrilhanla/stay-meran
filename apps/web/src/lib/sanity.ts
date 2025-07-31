@@ -126,7 +126,7 @@ export const getGalleryData = async (locale: string) => {
   };
 }
 
-export const getTestimonials = async (locale: string) => {
+export const getTestimonialData = async (locale: string) => {
   const textField = `${locale}_text`;
 
   const query = `*[_type == "testimonial"] | order(_createdAt asc) {
@@ -140,7 +140,15 @@ export const getTestimonials = async (locale: string) => {
     }
   }`;
 
-  return await client.fetch<{
+  const title = `${locale}_title`;
+  const description = `${locale}_description`;
+
+  const sectionHeaderQuery = `*[_type == "testimonialSectionHeader"][0]{
+    'title': ${title},
+    'description': ${description}
+  }`;
+
+  const testimonials = await client.fetch<{
     reviewer: string;
     text: string;
     avatar: {
@@ -150,4 +158,14 @@ export const getTestimonials = async (locale: string) => {
       };
     };
   }[]>(query);
+
+  const sectionHeader = await client.fetch<{
+    title: string;
+    description: string;
+  }>(sectionHeaderQuery);
+
+  return {
+    testimonials,
+    sectionHeader
+  };
 }
