@@ -20,9 +20,12 @@ const FeaturedAccommodation = async () => {
 
 			{/* Accommodation Cards */}
 			<div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
-				<AccommodationCard />
-				<AccommodationCard />
-				<AccommodationCard />
+				{accommodationList.map((accommodation) => (
+					<AccommodationCard
+						key={accommodation.image.asset._id}
+						accommodation={accommodation}
+					/>
+				))}
 			</div>
 		</section>
 	);

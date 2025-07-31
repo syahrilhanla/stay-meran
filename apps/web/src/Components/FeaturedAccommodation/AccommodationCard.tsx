@@ -3,29 +3,44 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { MoveRight } from "lucide-react";
 
-const AccommodationCard = () => {
+type Accommodation = {
+	title: string;
+	description: string;
+	price: number;
+	image: {
+		asset: {
+			_id: string;
+			url: string;
+		};
+	};
+};
+
+interface Props {
+	accommodation: Accommodation;
+}
+
+const AccommodationCard = ({ accommodation }: Props) => {
 	return (
 		<Card className="w-full py-3 px-0 border-none shadow-none rounded-2xl">
 			<CardHeader className="px-0">
 				<CardTitle className="text-sm px-0 relative">
 					<Image
-						src="/accommodation-1.png"
+						src={accommodation.image.asset.url}
 						alt="Accommodation Image"
 						width={500}
 						height={300}
 						className="w-full h-100 rounded-2xl object-center object-cover"
 					/>
 					<Button className="absolute bottom-3 left-3 bg-white/80 text-[#18191A] backdrop-blur-xs pointer-events-none">
-						Start from £80 / night
+						Start from £{accommodation.price} / night
 					</Button>
 				</CardTitle>
 				<CardContent className="mt-4 grid gap-4 p-0">
 					<h4 className="text-[#18191A] font-semibold lg:text-xl text-lg">
-						Helles Apartment in historischer Villa
+						{accommodation.title}
 					</h4>
 					<p className="text-[#454849] text-xs lg:text-sm font-light">
-						A bright, stylish retreat in a historic villa, blending classic
-						charm with modern comfort.
+						{accommodation.description}
 					</p>
 
 					<Button
