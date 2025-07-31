@@ -46,7 +46,7 @@ const TestimonialSection = () => {
 				<h3 className="mb-5 text-4xl lg:text-5xl text-[#18191A] leading-[150%] font-medium text-center">
 					What Our Guests Say At StayMeran
 				</h3>
-				<p className="text-lg lg:text-xl text-[#454849] leading-[150%] text-center">
+				<p className="text-lg lg:text-xl text-[#454849] leading-[150%] text-center font-light">
 					We take pride in providing an exceptional stay for our guests. See
 					what they have to say about their experiences and why they choose to
 					return.
@@ -58,23 +58,42 @@ const TestimonialSection = () => {
 				{Array.from({ length: 3 }).map((_, colIdx) => (
 					<div
 						key={colIdx}
-						className={`flex-1 flex flex-col gap-4 ${colIdx === 0 ? "" : "hidden sm:flex"}`}
+						className={`flex-1 flex flex-col gap-4 ${
+							colIdx === 0 ? "" : "hidden sm:flex"
+						}`}
 					>
 						{testimonials
 							.filter((_, i) => i % 3 === colIdx)
-							.map((t, i) => (
+							.map((testimonial, i) => (
 								<div
 									key={i}
-									className="flex flex-col justify-between h-full w-full border border-solid rounded-2xl p-4 gap-4"
+									className={`h-full w-full p-4 flex flex-col justify-between gap-4 group
+									border border-solid rounded-2xl text-[#454849] ${
+										colIdx === 0
+											? "first:bg-[#707577] first:text-white"
+											: colIdx === 2
+											? "last:bg-[#F8FAFB]"
+											: ""
+									}`}
 								>
-									<p className="text-base leading-relaxed flex-1">{t.text}</p>
+									<p className="text-base lg:text-lg leading-relaxed flex-1">
+										{testimonial.text}
+									</p>
 
-									<div className="flex items-center gap-3 mt-auto">
-										<Avatar>
+									<div className="w-full flex items-center justify-between gap-3 mt-auto">
+										<span
+											className={`text-base lg:text-lg text-[#454849] font-medium ${
+												colIdx === 0 && i === 0 ? "text-white" : ""
+											}`}
+										>
+											{testimonial.name}
+										</span>
+										<Avatar className="rounded-lg h-9 lg:h-12 w-9 lg:w-12">
 											<AvatarImage src="https://github.com/shadcn.png" />
-											<AvatarFallback>{t.name.charAt(0)}</AvatarFallback>
+											<AvatarFallback>
+												{testimonial.name.charAt(0)}
+											</AvatarFallback>
 										</Avatar>
-										<span className="font-medium text-sm">{t.name}</span>
 									</div>
 								</div>
 							))}
