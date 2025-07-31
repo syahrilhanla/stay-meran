@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 
@@ -11,6 +11,8 @@ import type { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 type Params = Promise<{ locale: string }>;
+
+const DEFAULT_LOCALE = "en";
 
 export async function generateMetadata({
 	params,
@@ -45,9 +47,11 @@ export default async function LocaleLayout({
 	params: Params;
 }>) {
 	// Ensure that the incoming `locale` is valid
-	const locale = await params;
+
+	const { locale } = await params;
+
 	if (!hasLocale(routing.locales, locale)) {
-		notFound();
+		redirect(`/${DEFAULT_LOCALE}`);
 	}
 
 	return (

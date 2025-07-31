@@ -9,8 +9,6 @@ const DestinationInfoSection = async () => {
 
 	const { galleryData, sectionHeader } = await getGalleryData(locale);
 
-	console.log(galleryData);
-
 	return (
 		<section
 			className="lg:w-screen relative lg:left-1/2 lg:right-1/2
