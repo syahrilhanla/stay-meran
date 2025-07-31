@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const testimonials = [
 	{
@@ -70,14 +70,10 @@ const TestimonialSection = () => {
 									<p className="text-base leading-relaxed flex-1">{t.text}</p>
 
 									<div className="flex items-center gap-3 mt-auto">
-										<Image
-											src={"/Union.svg"}
-											alt={t.name}
-											className="rounded-full object-cover border border-gray-300 bg-gray-800/80"
-											loading="lazy"
-											width={32}
-											height={32}
-										/>
+										<Avatar>
+											<AvatarImage src="https://github.com/shadcn.png" />
+											<AvatarFallback>{t.name.charAt(0)}</AvatarFallback>
+										</Avatar>
 										<span className="font-medium text-sm">{t.name}</span>
 									</div>
 								</div>
