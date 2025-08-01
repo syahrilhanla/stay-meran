@@ -60,7 +60,8 @@ const AccommodationCard = ({ accommodation }: Props) => {
 							</p>
 
 							<Button
-								className="w-42 h-12 p-4 text-sm cursor-pointer rounded-full border border-[#18191A] bg-white/80 text-[#18191A]"
+								className="w-42 h-12 p-4 text-sm cursor-pointer active:scale-125 duration-300 hover:scale-105
+									rounded-full border border-[#18191A] bg-white/80 text-[#18191A]"
 								variant="outline"
 							>
 								{t("cardAction")} <ArrowRight className="ml-1 h-6 w-6" />

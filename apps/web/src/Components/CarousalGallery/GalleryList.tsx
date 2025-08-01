@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { GalleryData } from "./CarousalGallery";
 
 interface Props {
@@ -11,8 +12,12 @@ interface Props {
 const GalleryList = ({ setActiveInfo, activeInfo, galleryData }: Props) => {
 	return (
 		<ul className="list-none grid lg:order-1 order-2 -mt-8 lg:-mt-0">
-			{galleryData.map((item) => (
-				<li
+			{galleryData.map((item, index) => (
+				<motion.li
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.3, ease: "easeInOut", delay: 0.1 * index }}
+					viewport={{ once: true, amount: 0.5 }}
 					key={item.title}
 					onClick={() => setActiveInfo(item)}
 					className={`h-fit p-4 flex flex-col justify-end items-end
@@ -38,7 +43,7 @@ const GalleryList = ({ setActiveInfo, activeInfo, galleryData }: Props) => {
 							{item.description}
 						</p>
 					</div>
-				</li>
+				</motion.li>
 			))}
 		</ul>
 	);
