@@ -1,6 +1,7 @@
 import Hero from "@/Components/HeroSection/Hero";
 import FeaturedAccommodation from "@/Components/FeaturedAccommodation/FeaturedAccommodation";
 import DestinationInfoSection from "@/Components/DestinationInfoSection/DestinationInfoSection";
+import TestimonialSection from "@/Components/TestimonialSection/TestimonialSection";
 
 // TODO: make page to be static
 
@@ -10,6 +11,7 @@ export default async function Home() {
 			<Hero />
 			<FeaturedAccommodation />
 			<DestinationInfoSection />
+			<TestimonialSection />
 		</main>
 	);
 }
