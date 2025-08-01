@@ -125,3 +125,47 @@ export const getGalleryData = async (locale: string) => {
     galleryData
   };
 }
+
+export const getTestimonialData = async (locale: string) => {
+  const textField = `${locale}_text`;
+
+  const query = `*[_type == "testimonial"] | order(_createdAt asc) {
+    reviewer,
+    'text': ${textField},
+    avatar {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }`;
+
+  const title = `${locale}_title`;
+  const description = `${locale}_description`;
+
+  const sectionHeaderQuery = `*[_type == "testimonialSectionHeader"][0]{
+    'title': ${title},
+    'description': ${description}
+  }`;
+
+  const testimonials = await client.fetch<{
+    reviewer: string;
+    text: string;
+    avatar: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+  }[]>(query);
+
+  const sectionHeader = await client.fetch<{
+    title: string;
+    description: string;
+  }>(sectionHeaderQuery);
+
+  return {
+    testimonials,
+    sectionHeader
+  };
+}
