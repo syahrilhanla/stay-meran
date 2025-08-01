@@ -36,6 +36,26 @@ export const getHeroData = async (locale: string) => {
   return await client.fetch<HeroData>(query);
 }
 
+export const getHeroBanner = async () => {
+  const query = `*[_type == "hero"][0]{
+    image {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }`;
+
+  return await client.fetch<{
+    image: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+  }>(query);
+}
+
 export const getAccommodationData = async (locale: string) => {
   const description = `${locale}_description`;
 
