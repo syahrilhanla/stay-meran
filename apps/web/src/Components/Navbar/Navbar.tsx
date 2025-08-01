@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { DM_Sans } from "next/font/google";
+import { motion } from "motion/react";
 
 import LocaleSelector from "./LocaleSelector";
 import {
@@ -13,7 +16,12 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = () => {
 	return (
-		<nav className="absolute top-0 z-50 w-full flex flex-col items-center py-6 px-4 md:px-10">
+		<motion.nav
+			className="absolute top-0 z-50 w-full flex flex-col items-center py-6 px-4 md:px-10"
+			initial={{ scaleX: 0, opacity: 0 }}
+			animate={{ scaleX: 1, scaleY: 1, opacity: 1 }}
+			transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+		>
 			{/* menu bar centered */}
 			<div
 				className="w-full lg:w-fit flex items-center justify-between lg:justify-start gap-4 
@@ -65,7 +73,7 @@ const Navbar = () => {
 			<div className="relative mt-2 md:absolute hidden lg:block md:right-10">
 				<LocaleSelector />
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };
 
