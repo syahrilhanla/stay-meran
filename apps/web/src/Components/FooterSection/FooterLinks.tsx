@@ -32,7 +32,7 @@ const FooterLinks = () => {
 			</div>
 
 			<div className="order-1 lg:order-2 flex flex-col lg:gap-6 gap-4 text-white">
-				<p className="text-xl lg:pt-0 pt-4">About</p>
+				<p className="text-xl">About</p>
 				<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
 					About Us
 				</Link>
@@ -71,15 +71,17 @@ const FooterLinks = () => {
 					</span>
 				</div>
 
-				<Image
-					src={"/footer-creator.svg"}
-					alt="Creator Logo"
-					width={220}
-					height={160}
-					quality={75}
-					loading="lazy"
-					className="object-cover rounded mt-2 grayscale"
-				/>
+				<span className="border-t lg:border-t-none border-[#454849] pt-4 lg:pt-0">
+					<Image
+						src={"/footer-creator.svg"}
+						alt="Creator Logo"
+						width={220}
+						height={160}
+						quality={75}
+						loading="lazy"
+						className="object-cover rounded mt-2 grayscale"
+					/>
+				</span>
 			</div>
 		</div>
 	);
