@@ -19,7 +19,6 @@ const AccommodationDescription = ({ description }: { description: string }) => {
 			<motion.h2
 				className="lg:pr-8 text-left text-3xl lg:text-5xl text-[#18191A] font-medium leading-[150%]"
 				initial={{ scaleX: 0.3, opacity: 0.1, y: 150 }}
-				animate={{ scaleX: 1, opacity: 1 }}
 				transition={{ duration: 0.6, ease: "easeInOut" }}
 				whileInView={{
 					opacity: 1,
