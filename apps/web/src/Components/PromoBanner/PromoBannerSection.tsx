@@ -33,7 +33,7 @@ const PromoBannerSection = ({ promoBannerData }: Props) => {
 		>
 			{/* Banner */}
 			<Image
-				src={promoBannerData.image.asset.url}
+				src={image.asset.url}
 				alt={"Promo Banner Image"}
 				fill
 				className="object-right object-cover lg:object-none z-0 scale-140 pointer-events-none rounded-2xl backdrop-blur-3xl"
