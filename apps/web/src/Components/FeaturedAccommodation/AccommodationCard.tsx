@@ -42,9 +42,9 @@ const AccommodationCard = ({ accommodation }: Props) => {
 					</Button>
 				</CardTitle>
 				<CardContent className="mt-4 grid gap-4 p-0">
-					<h4 className="text-[#18191A] font-semibold lg:text-xl text-lg">
+					<h3 className="text-[#18191A] font-semibold lg:text-xl text-lg">
 						{accommodation.title}
-					</h4>
+					</h3>
 					<p className="text-[#454849] text-xs lg:text-sm font-light">
 						{accommodation.description}
 					</p>

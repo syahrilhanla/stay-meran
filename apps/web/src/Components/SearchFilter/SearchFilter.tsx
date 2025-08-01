@@ -64,6 +64,7 @@ const SearchFilter = () => {
 					{/* Search button */}
 					<Button
 						type="button"
+						id="search-button-desktop"
 						className="h-full w-full bg-[#18191A] hover:[#18191A]/50 text-white p-3 
             flex items-center rounded-l-none justify-center transition-colors rounded-r-2xl cursor-pointer"
 					>

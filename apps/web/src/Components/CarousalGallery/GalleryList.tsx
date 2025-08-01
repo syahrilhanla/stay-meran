@@ -25,12 +25,12 @@ const GalleryList = ({ setActiveInfo, activeInfo, galleryData }: Props) => {
 						className="xl:w-138 lg:w-100 w-full duration-300
 			  flex flex-col gap-2 justify-end items-start"
 					>
-						<h5
+						<h4
 							className={`text-xl lg:text-2xl font-medium 
                 ${activeInfo === item ? "text-[#18191A]" : "text-[#B4BCBE]"}`}
 						>
 							{item.title}
-						</h5>
+						</h4>
 						{/* only shown when active, animate later with framer motion */}
 						<p
 							className={`font-light text-sm text-[#454849] leading-[150%] ${activeInfo === item ? "block" : "hidden"} lg:block lg:leading-[150%] ${activeInfo === item ? "" : "lg:hidden"}`}

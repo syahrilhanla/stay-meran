@@ -55,6 +55,7 @@ const TestimonialGrids = ({ testimonials }: Props) => {
 										<AvatarImage
 											src={testimonial.avatar?.asset.url}
 											className="object-top object-cover"
+											alt={testimonial.reviewer}
 										/>
 										<AvatarFallback className="bg-[#454849] text-slate-200">
 											{testimonial.reviewer.charAt(0)}
