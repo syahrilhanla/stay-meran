@@ -1,5 +1,7 @@
 import { getLocale } from "next-intl/server";
+
 import AccommodationCard from "./AccommodationCard";
+import AccommodationDescription from "./AccommodationDescription";
 
 import { getAccommodationData } from "@/lib/sanity";
 
@@ -11,12 +13,7 @@ const FeaturedAccommodation = async () => {
 	return (
 		<section className="my-16 mx-0 lg:mx-32 flex flex-col gap-12 justify-center items-center">
 			{/* Section Description */}
-			<h2
-				className="lg:pr-8 text-left text-3xl lg:text-5xl text-[#18191A] 
-        font-medium leading-[150%]"
-			>
-				{sectionText.description}
-			</h2>
+			<AccommodationDescription description={sectionText.description} />
 
 			{/* Accommodation Cards */}
 			<div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
