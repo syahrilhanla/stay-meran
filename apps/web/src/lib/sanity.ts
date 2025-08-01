@@ -189,3 +189,33 @@ export const getTestimonialData = async (locale: string) => {
     sectionHeader
   };
 }
+
+export const getPromoBannerData = async (locale: string) => {
+  const firstHeading = `${locale}_heading1`;
+  const secondHeading = `${locale}_heading2`;
+  const description = `${locale}_description`;
+
+  const query = `*[_type == "promoBanner"][0]{
+    'firstHeading': ${firstHeading},
+    'secondHeading': ${secondHeading},
+    'description': ${description},
+    image {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }`;
+
+  return await client.fetch<{
+    firstHeading: string;
+    secondHeading: string;
+    description: string;
+    image: {
+      asset: {
+        _id: string;
+        url: string;
+      };
+    };
+  }>(query);
+}
