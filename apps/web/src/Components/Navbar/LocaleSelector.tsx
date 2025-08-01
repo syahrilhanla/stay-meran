@@ -23,7 +23,11 @@ enum TranslationLocale {
 	de = "German (DE)",
 }
 
-const LocaleSelector = () => {
+interface Props {
+	withoutIcon?: boolean;
+}
+
+const LocaleSelector = ({ withoutIcon }: Props) => {
 	const router = useRouter();
 
 	const pathname = usePathname();
@@ -54,7 +58,7 @@ const LocaleSelector = () => {
 					type="button"
 					className="flex items-center gap-3 text-white px-4 py-2 cursor-pointer hover:bg-slate-300/20 rounded-md duration-300"
 				>
-					<Globe strokeWidth={2} />
+					{!withoutIcon && <Globe className="w-5 h-5" />}
 					<span className="font-light">
 						{TranslationLocale[locale] || TranslationLocale.en}
 					</span>
