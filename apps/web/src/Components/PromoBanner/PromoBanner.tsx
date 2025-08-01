@@ -11,7 +11,7 @@ const PromoBanner = async () => {
 		await getPromoBannerData(locale);
 
 	return (
-		<section className="relative lg:my-40 my-30 mx-0 lg:mx-32 h-[75dvh] overflow-hidden rounded-2xl duration-300">
+		<section className="relative lg:mt-40 mt-30 mx-0 lg:mx-32 h-[75dvh] overflow-hidden rounded-2xl duration-300">
 			{/* Banner */}
 			<Image
 				src={image.asset.url}
