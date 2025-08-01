@@ -23,9 +23,9 @@ const HeroSection = ({ heroData }: Props) => {
 	return (
 		<motion.section
 			className="relative w-full h-[95dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg"
-			initial={{ scaleX: 0.1, scaleY: 0.1, opacity: 0 }}
-			animate={{ scaleX: 1, scaleY: 1, opacity: 1 }}
-			transition={{ duration: 0.5, ease: "easeOut" }}
+			initial={{ scaleX: 0.3, opacity: 0.1 }}
+			animate={{ scaleX: 1, opacity: 1 }}
+			transition={{ duration: 0.6, ease: "easeInOut" }}
 		>
 			<Navbar />
 
