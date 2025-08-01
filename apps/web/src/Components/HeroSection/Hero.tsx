@@ -16,7 +16,7 @@ const Hero = async () => {
 	const heroData = await getHeroData(locale);
 
 	return (
-		<section className="relative w-full h-[95dvh] lg:h-[85dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
+		<section className="relative w-full h-[95dvh] flex justify-center items-center rounded-2xl overflow-hidden shadow-lg">
 			<Navbar />
 
 			{/* Background image */}

@@ -37,5 +37,4 @@ export const heroSchema = defineType({
 })
 export const schemaTypes = [
   heroSchema,
-  // Add other schema types here as needed
 ];

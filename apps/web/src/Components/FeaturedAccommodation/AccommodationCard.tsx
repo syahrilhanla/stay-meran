@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { MoveRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
@@ -53,7 +53,7 @@ const AccommodationCard = ({ accommodation }: Props) => {
 						className="w-42 h-12 p-4 text-sm cursor-pointer rounded-full border border-[#18191A] bg-white/80 text-[#18191A]"
 						variant="outline"
 					>
-						{t("cardAction")} <MoveRight className="ml-1 h-6 w-6" />
+						{t("cardAction")} <ArrowRight className="ml-1 h-6 w-6" />
 					</Button>
 				</CardContent>
 			</CardHeader>
