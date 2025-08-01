@@ -77,15 +77,29 @@ const FooterSection = () => {
 							Apartment Sissi mit Balkon
 						</Link>
 					</div>
-					<div className="grid gap-6 text-white">
-						<span className="w-full flex justify-end gap-6">
-							<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
-								<MessageCircleReply className="w-5 h-5" />
-							</div>
-							<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
-								<Instagram className="w-5 h-5" />
-							</div>
+					<div className="grid gap-6 text-white place-self-end h-full">
+						<span className="w-full flex gap-6 justify-end">
+							<Link href={"#"}>
+								<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
+									<MessageCircleReply className="w-5 h-5" />
+								</div>
+							</Link>
+							<Link href={"#"}>
+								<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
+									<Instagram className="w-5 h-5" />
+								</div>
+							</Link>
 						</span>
+
+						<Image
+							src={"/footer-creator.svg"}
+							alt="Creator Logo"
+							width={220}
+							height={160}
+							quality={75}
+							loading="lazy"
+							className="object-cover rounded mt-2 grayscale"
+						/>
 					</div>
 				</div>
 			</div>
