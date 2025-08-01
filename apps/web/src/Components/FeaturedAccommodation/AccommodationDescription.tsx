@@ -18,16 +18,28 @@ const AccommodationDescription = ({ description }: { description: string }) => {
 		<LazyMotion features={domAnimation}>
 			<motion.h2
 				className="lg:pr-8 text-left text-3xl lg:text-5xl text-[#18191A] font-medium leading-[150%]"
-				initial={{ scaleX: 0.3, opacity: 0.1, y: 150 }}
+				initial={{ scaleX: 0.3, opacity: 0.1, y: 100 }}
+				animate={{ scaleX: 1, opacity: 1 }}
 				transition={{ duration: 0.6, ease: "easeInOut" }}
 				whileInView={{
 					opacity: 1,
-					scaleX: 1,
 					y: 0,
 				}}
 				viewport={{ once: true, amount: 0.5 }}
 			>
-				{description}
+				{description.split("").map((char, i) => (
+					<motion.span
+						key={i}
+						custom={i}
+						variants={letterAnimation}
+						initial="hidden"
+						viewport={{ once: true, amount: 0.5 }}
+						whileInView={"visible"}
+						style={{ display: char === " " ? "inline-block" : "inline" }}
+					>
+						{char}
+					</motion.span>
+				))}
 			</motion.h2>
 		</LazyMotion>
 	);
