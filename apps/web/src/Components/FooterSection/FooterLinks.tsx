@@ -4,8 +4,8 @@ import { MessageCircleReply, Instagram } from "lucide-react";
 
 const FooterLinks = () => {
 	return (
-		<div className="py-4 grid grid-cols-[3fr_1fr_3fr_3fr] gap-4 border-b border-[#454849] pb-9">
-			<div className="grid gap-2 text-white">
+		<div className="py-4 grid lg:grid-cols-[3fr_1fr_3fr_3fr] gap-4 border-b border-[#454849] pb-9">
+			<div className="order-4 lg:order-1 grid gap-2 text-white">
 				<span className="flex gap-3 items-center">
 					<Image
 						src={"/Union.svg"}
@@ -30,8 +30,9 @@ const FooterLinks = () => {
 					className="object-cover rounded mt-2 grayscale"
 				/>
 			</div>
-			<div className="flex flex-col gap-6 text-white">
-				<p className="text-xl">About</p>
+
+			<div className="order-1 lg:order-2 flex flex-col lg:gap-6 gap-4 text-white">
+				<p className="text-xl lg:pt-0 pt-4">About</p>
 				<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
 					About Us
 				</Link>
@@ -39,8 +40,9 @@ const FooterLinks = () => {
 					Merano
 				</Link>
 			</div>
-			<div className="flex flex-col gap-6 text-white">
-				<p className="text-xl">About</p>
+
+			<div className="order-2 lg:order-3 flex flex-col lg:gap-6 gap-4 text-white">
+				<p className="text-xl lg:pt-0 pt-4">Our Stays</p>
 				<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
 					Helles Apartment in historischer Villa
 				</Link>
@@ -51,19 +53,23 @@ const FooterLinks = () => {
 					Apartment Sissi mit Balkon
 				</Link>
 			</div>
-			<div className="grid gap-6 text-white place-self-end h-full">
-				<span className="w-full flex gap-6 justify-end">
-					<Link href={"#"}>
-						<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
-							<MessageCircleReply className="w-5 h-5" />
-						</div>
-					</Link>
-					<Link href={"#"}>
-						<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
-							<Instagram className="w-5 h-5" />
-						</div>
-					</Link>
-				</span>
+
+			<div className="order-3 lg:order-4 grid gap-6 text-white lg:place-self-end h-full">
+				<div className="space-y-4 lg:pt-0 pt-4">
+					<p className="text-xl">Our Social Media</p>
+					<span className="w-full flex gap-6 lg:justify-end">
+						<Link href={"#"}>
+							<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
+								<MessageCircleReply className="w-5 h-5" />
+							</div>
+						</Link>
+						<Link href={"#"}>
+							<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
+								<Instagram className="w-5 h-5" />
+							</div>
+						</Link>
+					</span>
+				</div>
 
 				<Image
 					src={"/footer-creator.svg"}
