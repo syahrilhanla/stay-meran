@@ -5,8 +5,8 @@ import FooterLinks from "./FooterLinks";
 
 const FooterSection = () => {
 	return (
-		<footer className="mt-30 bg-[#18191A] box-border min-h-[30dvh]">
-			<div className="flex flex-col gap-8 px-36 py-20">
+		<footer className="mt-8 lg:mt-24 xl:mt-30 bg-[#18191A] box-border min-h-[30dvh]">
+			<div className="flex flex-col gap-8 px-4 md:px-24 lg:px-30 xl:px-36 py-4 lg:py-10 xl:py-20">
 				<FooterContacts />
 				<FooterLinks />
 
