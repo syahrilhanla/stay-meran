@@ -1,6 +1,7 @@
-import { Mail, Phone } from "lucide-react";
+import { Instagram, Mail, MessageCircleReply, Phone } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const FooterSection = () => {
 	return (
@@ -16,7 +17,7 @@ const FooterSection = () => {
 						id="contact-email"
 						className="!py-6 !px-4 text-white flex gap-1 bg-transparent rounded-full active:scale-125 transition-all duration-300 cursor-pointer"
 					>
-						<Mail className="!size-6" /> <span>Email:</span>{" "}
+						<Mail className="!size-6" /> <span>Email:</span>
 						<span>info@staymeran.com</span>
 					</Button>
 					<Button
@@ -24,7 +25,7 @@ const FooterSection = () => {
 						id="contact-phone"
 						className="!py-6 !px-4 text-white flex gap-1 bg-transparent rounded-full active:scale-125 transition-all duration-300 cursor-pointer"
 					>
-						<Phone className="!size-6" /> <span>Phone:</span>{" "}
+						<Phone className="!size-6" /> <span>Phone:</span>
 						<span>+39 123 456 7890</span>
 					</Button>
 				</div>
@@ -41,7 +42,10 @@ const FooterSection = () => {
 							/>
 							<p className="text-xl">Stay Merano</p>
 						</span>
-						<p>Bernhard Johannes Str. 1, 39012 Merano</p>
+
+						<p className="text-sm leading-[200%]">
+							Bernhard Johannes Str. 1, 39012 Merano
+						</p>
 						<Image
 							src={"/traveler-award.png"}
 							alt="Logo"
@@ -52,9 +56,37 @@ const FooterSection = () => {
 							className="object-cover rounded mt-2 grayscale"
 						/>
 					</div>
-					<div></div>
-					<div></div>
-					<div></div>
+					<div className="flex flex-col gap-6 text-white">
+						<p className="text-xl">About</p>
+						<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
+							About Us
+						</Link>
+						<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
+							Merano
+						</Link>
+					</div>
+					<div className="flex flex-col gap-6 text-white">
+						<p className="text-xl">About</p>
+						<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
+							Helles Apartment in historischer Villa
+						</Link>
+						<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
+							Apartment Franz
+						</Link>
+						<Link href={"#"} className="text-sm text-[#CCD3D6] tracking-tight">
+							Apartment Sissi mit Balkon
+						</Link>
+					</div>
+					<div className="grid gap-6 text-white">
+						<span className="w-full flex justify-end gap-6">
+							<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
+								<MessageCircleReply className="w-5 h-5" />
+							</div>
+							<div className="rounded-full p-0 bg-[#454849] w-10 h-10 flex items-center justify-center">
+								<Instagram className="w-5 h-5" />
+							</div>
+						</span>
+					</div>
 				</div>
 			</div>
 		</footer>
