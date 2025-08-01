@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface Props {
@@ -21,7 +24,15 @@ const TestimonialGrids = ({ testimonials }: Props) => {
 					{testimonials
 						.filter((_, i) => i % 3 === colIdx)
 						.map((testimonial, i) => (
-							<div
+							<motion.div
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								transition={{
+									duration: 0.3,
+									ease: "easeInOut",
+									delay: 0.1 * i,
+								}}
+								viewport={{ once: true, amount: 0.5 }}
 								key={i}
 								className={`w-full p-4 sm:flex flex-col justify-between gap-4 group
 										not-first:hidden not-first:sm:flex not-first:sm:h-full not-first:h-0
@@ -62,7 +73,7 @@ const TestimonialGrids = ({ testimonials }: Props) => {
 										</AvatarFallback>
 									</Avatar>
 								</div>
-							</div>
+							</motion.div>
 						))}
 				</div>
 			))}
