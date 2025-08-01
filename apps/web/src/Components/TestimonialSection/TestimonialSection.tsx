@@ -7,7 +7,7 @@ const TestimonialSection = async () => {
 	const { sectionHeader, testimonials } = await getTestimonialData(locale);
 
 	return (
-		<section className="my-16 mx-0 lg:mx-32 flex flex-col justify-center items-center">
+		<section className="my-16 mx-0 md:mx-10 lg:mx-28 xl:mx-32 flex flex-col justify-center items-center">
 			<div className="w-full">
 				<h3 className="mb-5 text-4xl lg:text-5xl text-[#18191A] leading-[150%] font-medium text-center">
 					{sectionHeader.title}
@@ -31,16 +31,18 @@ const TestimonialSection = async () => {
 							.map((testimonial, i) => (
 								<div
 									key={i}
-									className={`h-full w-full p-4 flex flex-col justify-between gap-4 group
-									border border-solid rounded-2xl text-[#454849] ${
-										colIdx === 0
-											? "first:bg-[#707577] first:text-white"
-											: colIdx === 2
-												? "last:bg-[#F8FAFB]"
-												: ""
-									}`}
+									className={`w-full p-4 sm:flex flex-col justify-between gap-4 group
+										not-first:hidden not-first:sm:flex not-first:sm:h-full not-first:h-0
+										border border-solid rounded-2xl text-[#454849]
+										duration-300 transition-all ${
+											colIdx === 0
+												? "first:bg-[#707577] first:text-white"
+												: colIdx === 2
+													? "last:bg-[#F8FAFB]"
+													: ""
+										}`}
 								>
-									<p className="text-base lg:text-lg leading-relaxed flex-1">
+									<p className="text-sm lg:text-base xl:text-lg leading-relaxed flex-1">
 										{testimonial.text}
 									</p>
 
