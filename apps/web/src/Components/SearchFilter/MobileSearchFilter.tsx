@@ -53,6 +53,7 @@ const MobileSearchFilter = () => {
 
 			<button
 				type="button"
+				id="search-button-mobile"
 				className="w-full bg-[#18191A] hover:bg-[#18191A]/80 text-white text-sm
 					p-3 font-extralight rounded-2xl cursor-pointer flex items-center justify-center gap-2"
 			>
