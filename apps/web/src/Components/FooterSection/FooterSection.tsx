@@ -1,5 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 const FooterSection = () => {
 	return (
@@ -9,7 +10,7 @@ const FooterSection = () => {
 					Contact us for more details about your perfect stay in Merano.
 				</p>
 
-				<span className="flex gap-5">
+				<div className="flex gap-5 border-b border-[#454849] pt-2 pb-8">
 					<Button
 						variant="outline"
 						id="contact-email"
@@ -26,7 +27,35 @@ const FooterSection = () => {
 						<Phone className="!size-6" /> <span>Phone:</span>{" "}
 						<span>+39 123 456 7890</span>
 					</Button>
-				</span>
+				</div>
+
+				<div className="py-4 grid grid-cols-[3fr_1fr_3fr_3fr] gap-4">
+					<div className="grid gap-2 text-white">
+						<span className="flex gap-3 items-center">
+							<Image
+								src={"/Union.svg"}
+								alt="Logo"
+								width={40}
+								height={40}
+								quality={50}
+							/>
+							<p className="text-xl">Stay Merano</p>
+						</span>
+						<p>Bernhard Johannes Str. 1, 39012 Merano</p>
+						<Image
+							src={"/traveler-award.png"}
+							alt="Logo"
+							width={220}
+							height={160}
+							quality={75}
+							loading="lazy"
+							className="object-cover rounded mt-2 grayscale"
+						/>
+					</div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
 			</div>
 		</footer>
 	);
