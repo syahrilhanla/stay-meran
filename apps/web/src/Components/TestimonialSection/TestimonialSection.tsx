@@ -36,7 +36,7 @@ const TestimonialSection = async () => {
 										border border-solid rounded-2xl text-[#454849]
 										duration-300 transition-all ${
 											colIdx === 0
-												? "first:bg-[#707577] first:text-white"
+												? "first:sm:bg-[#707577] not-first:bg-white first:sm:text-white not-first:text-[#18191A]"
 												: colIdx === 2
 													? "last:bg-[#F8FAFB]"
 													: ""
@@ -46,10 +46,12 @@ const TestimonialSection = async () => {
 										{testimonial.text}
 									</p>
 
-									<div className="w-full flex items-center justify-between gap-3 mt-auto">
+									<div className="w-full flex items-center justify-between gap-3 mt-6">
 										<span
-											className={`text-base lg:text-lg text-[#454849] font-medium ${
-												colIdx === 0 && i === 0 ? "text-white" : ""
+											className={`text-base lg:text-lg font-medium ${
+												colIdx === 0 && i === 0
+													? "sm:text-white text-[#454849]"
+													: "text-[#454849]"
 											}`}
 										>
 											{testimonial.reviewer}
